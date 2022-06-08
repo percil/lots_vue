@@ -1,7 +1,7 @@
 import {ref} from "vue";
-import authHeader from "@/services/auth-headers";
 
-const API_SHEET = 'http://localhost:8000/sheets/'
+
+const API_SHEET = 'http://localhost:8000/api/sheets'
 
 export const getCharacterSheet = () => {
     const characterSheet = ref(null)
@@ -9,9 +9,7 @@ export const getCharacterSheet = () => {
 
     const loadCharacterSheet = async (slug) => {
         try {
-            let data = await fetch(API_SHEET + slug, {
-                headers: authHeader()
-            })
+            let data = await fetch(API_SHEET + '/' + slug)
 
             if (!data.ok) {
                 throw Error('No data available')
@@ -29,4 +27,25 @@ export const getCharacterSheet = () => {
     }
 
 
+}
+
+export const getCharacterSheetsForSession = () => {
+    const sheets = ref([])
+    const error = ref(null)
+
+    const loadCharacterSheets = async (sessionId) => {
+        try {
+            let data = await fetch(API_SHEET + '?game_sessions=' + sessionId)
+
+            if (!data.ok) {
+                throw Error('No data available')
+            }
+
+            sheets.value = await data.json()
+        } catch (e) {
+            error.value = e.message
+        }
+    }
+
+    return {sheets, error, loadCharacterSheets}
 }

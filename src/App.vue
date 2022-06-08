@@ -1,12 +1,11 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/templates">Game Templates</router-link>
-    |
-    <router-link to="/sessions">Game Sessions</router-link>
-  </nav>
-  <router-view/>
+  <div class="container">
+    <nav class="navbar">
+      <router-link to="/" class="nav-item">Home</router-link>
+      <router-link to="/sessions">Game Sessions</router-link>
+    </nav>
+    <router-view/>
+  </div>
 </template>
 
 <style>

@@ -11,3 +11,6 @@ createApp(App)
     .use(store)
     .use(router)
     .mount('#app')
+
+// JS imports
+import "bootstrap/dist/js/bootstrap"

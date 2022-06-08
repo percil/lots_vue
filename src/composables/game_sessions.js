@@ -15,11 +15,33 @@ export const getGameSessions = () => {
             gameSessions.value = await data.json()
         } catch (e) {
             error.value = e.message
-            console.log(`Error while loading game sessions: ${error.value}`)
         }
     }
 
     return {
         gameSessions, error, loadGameSessions
+    }
+}
+
+export const getGameSessionById = () => {
+    const session = ref(null)
+    const error = ref(null)
+
+    const loadGameSession = async (id) => {
+        try {
+            let data = await fetch(`http://localhost:8000/api/sessions/${id}`)
+
+            if (!data.ok) {
+                throw Error('No data available')
+            }
+
+            session.value = await data.json()
+        } catch (e) {
+            error.value = e.message
+        }
+    }
+
+    return {
+        session, error, loadGameSession
     }
 }

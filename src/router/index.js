@@ -1,7 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import GameTemplateView from "@/views/GameTemplateView";
 import GameSessionView from "@/views/GameSessionView";
+import CharacterSheetView from "@/views/CharacterSheetView";
+import GameMasterView from "@/views/GameMasterView";
 
 
 const routes = [
@@ -11,14 +12,19 @@ const routes = [
         component: HomeView
     },
     {
-        path: '/templates',
-        name: 'gameTemplates',
-        component: GameTemplateView
-    },
-    {
         path: '/sessions',
         name: 'gameSessions',
         component: GameSessionView
+    },
+    {
+        path: '/sessions/:id',
+        name: 'gameMasterSession',
+        component: GameMasterView
+    },
+    {
+        path: '/sheets/:slug',
+        name: 'characterSheet',
+        component: CharacterSheetView
     }
 ]
 

@@ -5,8 +5,14 @@
   </div>
 
   <div v-if="sheets.length">
-    <div v-for="sheet in sheets" :key="sheet.id">
-      <p>{{ sheet.name }}</p>
+    <div v-if="session.game_template.code == 'cthulhu'">
+      <SheetsCthulhu :sheets="sheets"/>
+    </div>
+    <div v-else-if="session.game_template.code == 'whitebox'">
+      <SheetsWhitebox :sheets="sheets"/>
+    </div>
+    <div v-else-if="session.game_template.code == 'freaks-squeele'">
+      <SheetsFreaksSqueele :sheets="sheets"/>
     </div>
   </div>
   <div v-else>
@@ -23,9 +29,13 @@
 import {useRoute} from "vue-router";
 import {getGameSessionById} from "@/composables/game_sessions";
 import {getCharacterSheetsForSession} from "@/composables/character_sheet";
+import SheetsCthulhu from "@/components/sheets/master/SheetsCthulhu";
+import SheetsWhitebox from "@/components/sheets/master/SheetsWhitebox";
+import SheetsFreaksSqueele from "@/components/sheets/master/SheetsFreaksSqueele";
 
 export default {
   name: "GameMasterView",
+  components: {SheetsFreaksSqueele, SheetsWhitebox, SheetsCthulhu},
   setup() {
     const route = useRoute()
     const {session, error, loadGameSession} = getGameSessionById()

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import GameTemplateView from "@/views/GameTemplateView";
 import GameSessionView from "@/views/GameSessionView";
 
+
 const routes = [
     {
         path: '/',

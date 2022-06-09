@@ -1,8 +1,9 @@
 <template>
   <div v-if="sheets.length">
-    <table>
+    <table class="table table-striped">
       <thead>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Race</th>
         <th>Class</th>
@@ -16,7 +17,12 @@
       </thead>
       <tbody>
       <tr v-for="sheet in sheets" :key="sheet.id">
-        <td>{{ sheet.name }}</td>
+        <td>
+          <a class="btn btn-dark" target="_blank" :href="'/sheets/'+sheet.slug">
+            view
+          </a>
+        </td>
+        <td> {{ sheet.name }}</td>
         <td>{{ sheet.content.race }}</td>
         <td>{{ sheet.content.class }}</td>
         <td>{{ sheet.content.str }}</td>

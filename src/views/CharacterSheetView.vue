@@ -34,6 +34,7 @@ export default {
     const route = useRoute()
 
     let sheetSlug = route.params.slug
+    console.log(`using slug: ${sheetSlug}`)
 
     const {characterSheet, error, loadCharacterSheet} = getCharacterSheet()
 

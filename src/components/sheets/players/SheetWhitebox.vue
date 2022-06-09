@@ -65,6 +65,7 @@
                 style="top: 825px; left: 50px; position: absolute"></textarea>
       <input id="gp" type="text" v-model="sheet.content.gp" v-on:change="handleUpdate"
              style="top: 575px; left: 630px; position: absolute">
+
     </div>
   </div>
 </template>

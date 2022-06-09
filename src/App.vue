@@ -1,9 +1,5 @@
 <template>
   <div class="container">
-    <nav class="navbar">
-      <router-link to="/" class="nav-item">Home</router-link>
-      <router-link to="/sessions">Game Sessions</router-link>
-    </nav>
     <router-view/>
   </div>
 </template>

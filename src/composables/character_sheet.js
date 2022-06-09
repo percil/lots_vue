@@ -3,6 +3,21 @@ import {ref} from "vue";
 
 const API_SHEET = 'http://localhost:8000/api/sheets'
 
+export const generateDefaultValue = (expectedType) => {
+    switch (expectedType) {
+        case 'number':
+            return 10
+        case 'input':
+            return 'sample'
+        case 'check':
+            return false
+        case 'mod':
+            return 0
+        default:
+            return null
+    }
+}
+
 export const getCharacterSheet = () => {
     const characterSheet = ref(null)
     const error = ref(null)
@@ -48,4 +63,18 @@ export const getCharacterSheetsForSession = () => {
     }
 
     return {sheets, error, loadCharacterSheets}
+}
+
+export const updateCharacterSheet = (sheet) => {
+    fetch(API_SHEET + '/' + sheet.slug, {
+            method: 'PUT',
+            body: JSON.stringify(sheet),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        }
+    )
+        .then(() => console.log('Updated.'))
+        .catch((e) => console.error(e))
+
 }

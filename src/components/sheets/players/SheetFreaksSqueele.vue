@@ -82,24 +82,29 @@
 </template>
 
 <script>
-import {reactive, ref} from "vue"
+import {ref} from "vue"
+import {getCharacterSheet, updateCharacterSheet} from "@/composables/character_sheet";
 
 
 export default {
   name: "SheetFreaksSqueele",
-  props: ['characterSheet'],
+  props: ['slug'],
   setup(props) {
+    const {characterSheet, error, loadCharacterSheet} = getCharacterSheet()
 
-    let sheet = ref(props['characterSheet'])
+    loadCharacterSheet(props.slug)
 
-    if (sheet.value.content !== null) {
-      sheet.value.content = reactive({})
+    let sheet = ref(characterSheet)
+
+    const handleUpdate = () => {
+      updateCharacterSheet(characterSheet.value)
     }
 
     return {
-      sheet
+      sheet, error, handleUpdate
     }
   }
+
 }
 </script>
 

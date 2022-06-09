@@ -1,7 +1,7 @@
 <template>
   <div v-if="characterSheet">
     <div v-if="characterSheet.game_template.code == 'whitebox'">
-      <SheetWhitebox />
+      <SheetWhitebox :slug="characterSheet.slug"/>
     </div>
     <div v-else-if="characterSheet.game_template.code == 'cthulhu'">
       <SheetCthulhu :character-sheet="characterSheet"/>

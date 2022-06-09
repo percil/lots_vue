@@ -70,21 +70,16 @@
 </template>
 
 <script>
-import {useRoute} from "vue-router";
 import {getCharacterSheet, updateCharacterSheet} from "@/composables/character_sheet";
 import {ref} from "vue";
 
 export default {
   name: "SheetWhitebox",
-
-  setup() {
-    const route = useRoute()
-
-    let sheetSlug = route.params.slug
-
+  props: ['slug'],
+  setup(props) {
     const {characterSheet, error, loadCharacterSheet} = getCharacterSheet()
 
-    loadCharacterSheet(sheetSlug)
+    loadCharacterSheet(props.slug)
 
     let sheet = ref(characterSheet)
 

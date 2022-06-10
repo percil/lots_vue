@@ -1,12 +1,14 @@
 import {ref} from "vue";
 
+const BASE_URL = process.env.VUE_APP_REST_API_URL
+
 export const getGameSessions = () => {
     const gameSessions = ref([])
     const error = ref(null)
 
     const loadGameSessions = async () => {
         try {
-            let data = await fetch('http://localhost:8000/api/sessions')
+            let data = await fetch(`${BASE_URL}/sessions`)
 
             if (!data.ok) {
                 throw Error('No data available')
@@ -29,7 +31,7 @@ export const getGameSessionById = () => {
 
     const loadGameSession = async (id) => {
         try {
-            let data = await fetch(`http://localhost:8000/api/sessions/${id}`)
+            let data = await fetch(`${BASE_URL}/sessions/${id}`)
 
             if (!data.ok) {
                 throw Error('No data available')

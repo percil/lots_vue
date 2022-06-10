@@ -1,7 +1,7 @@
 import {ref} from "vue";
 
-
-const API_SHEET = 'http://localhost:8000/api/sheets'
+const BASE_URL = process.env.VUE_APP_REST_API_URL
+const API_SHEET = `${BASE_URL}/sheets`
 
 export const generateDefaultValue = (expectedType) => {
     switch (expectedType) {

@@ -1,5 +1,8 @@
 FROM node:lts-alpine
 
+# install simple http server for serving static content
+RUN npm install -g serve
+
 # make the 'app' folder the current working directory
 WORKDIR /app
 
@@ -16,4 +19,4 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8080
-CMD ["npm", "run", "serve"]
+CMD [ "serve", "-s", "dist","-l", "8080" ]

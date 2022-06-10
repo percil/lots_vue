@@ -1,6 +1,6 @@
 import {ref} from "vue";
 
-const BASE_URL = process.env.VUE_APP_REST_API_URL
+const API_URL = process.env.VUE_APP_REST_API_URL
 
 export const getGameTemplates = () => {
     const gameTemplates = ref([])
@@ -8,7 +8,7 @@ export const getGameTemplates = () => {
 
     const loadGameTemplates = async () => {
         try {
-            let data = await fetch(`${BASE_URL}/templates`)
+            let data = await fetch(`${API_URL}/templates`)
 
             if (!data.ok) {
                 throw Error('No data available')

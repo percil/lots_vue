@@ -4,10 +4,10 @@
       <SheetWhitebox :slug="characterSheet.slug"/>
     </div>
     <div v-else-if="characterSheet.game_template.code == 'cthulhu'">
-      <SheetCthulhu :character-sheet="characterSheet"/>
+      <SheetCthulhu :slug="characterSheet.slug"/>
     </div>
     <div v-else-if="characterSheet.game_template.code == 'freaks-squeele'">
-      <SheetFreaksSqueele :character-sheet="characterSheet"/>
+      <SheetFreaksSqueele :slug="characterSheet.slug"/>
     </div>
     <div v-else>
       <h3>The sheet template is not supported yet.</h3>

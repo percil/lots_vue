@@ -4,8 +4,18 @@
       <thead>
       <tr>
         <th></th>
-        <th>Name</th>
-
+        <th>Nom</th>
+        <th>A.Ori</th>
+        <th>A.Mil</th>
+        <th>A.Pou</th>
+        <th>A.Tr</th>
+        <th>Ath</th>
+        <th>Art</th>
+        <th>Com</th>
+        <th>Inv</th>
+        <th>Eru</th>
+        <th>Com</th>
+        <th>Pouvoir</th>
       </tr>
       </thead>
       <tbody>
@@ -15,8 +25,18 @@
             view
           </a>
         </td>
-        <td> {{ sheet.name }}</td>
-        
+        <td> {{ sheet.name }} [{{ sheet.content.prénom }}]</td>
+        <td>[{{ sheet.content.aorigine_mod }}] {{ sheet.content.aorigine }}</td>
+        <td>[{{ sheet.content.amilieu_mod }}] {{ sheet.content.amilieu }}</td>
+        <td>[{{ sheet.content.apouvoir_mod }}] {{ sheet.content.apouvoir }}</td>
+        <td>[{{ sheet.content.atrouble_mod }}] {{ sheet.content.atrouble }}</td>
+        <td>{{ sheet.content.bathlétisme_mod }}</td>
+        <td>{{ sheet.content.bartisanat_mod }}</td>
+        <td>{{ sheet.content.bcombat_mod }}</td>
+        <td>{{ sheet.content.binvestigation_mod }}</td>
+        <td>{{ sheet.content.bérudition_mod }}</td>
+        <td>{{ sheet.content.bcommunication_mod }}</td>
+        <td>{{sheet.content.cpou1}}</td>
       </tr>
       </tbody>
     </table>

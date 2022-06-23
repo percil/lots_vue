@@ -5,6 +5,7 @@
       <tr>
         <th></th>
         <th>Nom</th>
+        <th>PEX</th>
         <th>A.Ori</th>
         <th>A.Mil</th>
         <th>A.Pou</th>
@@ -26,6 +27,7 @@
           </a>
         </td>
         <td> {{ sheet.name }} [{{ sheet.content.prénom }}]</td>
+        <td>{{ sheet.content.pex }}</td>
         <td>[{{ sheet.content.aorigine_mod }}] {{ sheet.content.aorigine }}</td>
         <td>[{{ sheet.content.amilieu_mod }}] {{ sheet.content.amilieu }}</td>
         <td>[{{ sheet.content.apouvoir_mod }}] {{ sheet.content.apouvoir }}</td>
@@ -36,13 +38,13 @@
         <td>{{ sheet.content.binvestigation_mod }}</td>
         <td>{{ sheet.content.bérudition_mod }}</td>
         <td>{{ sheet.content.bcommunication_mod }}</td>
-        <td>{{sheet.content.cpou1}}</td>
+        <td>{{ sheet.content.cpou1 }}</td>
       </tr>
       </tbody>
     </table>
   </div>
   <div v-else>
-    <h4>No sheets here (yet)...</h4>
+    <h4>No sheets Sherlock...</h4>
   </div>
 
 </template>
